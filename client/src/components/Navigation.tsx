@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Phone, Menu } from "lucide-react";
 import logoIcon from "@assets/generated_images/epha_hose_protectors_logo.png";
 
+import EPHA_Logo from "@assets/EPHA Logo.png";
+
 export function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-primary text-white shadow-md">
@@ -10,7 +12,7 @@ export function Navigation() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 cursor-pointer hover:opacity-90 transition-opacity">
             <img 
-              src={logoIcon} 
+              src={EPHA_Logo} 
               alt="EPHA Logo" 
               className="h-12 w-auto object-contain brightness-0 invert" 
             />
