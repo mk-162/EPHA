@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Phone, Menu } from "lucide-react";
+import { Phone, Menu, ShoppingCart, User } from "lucide-react";
 import logoIcon from "@assets/generated_images/epha_hose_protectors_logo.png";
 
 import EPHA_Logo from "@assets/EPHA Logo.png";
@@ -34,11 +34,28 @@ export function Navigation() {
         </nav>
 
         {/* Actions */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-6">
           <div className="flex items-center gap-2 text-sm font-medium opacity-80 hover:opacity-100 cursor-pointer">
             <Phone className="h-4 w-4" />
             <span>463-255-9942</span>
           </div>
+
+          <div className="h-4 w-px bg-white/20" />
+
+          <div className="flex items-center gap-4 text-sm font-medium">
+            <Link href="#" className="hover:text-accent transition-colors cursor-pointer flex items-center gap-2">
+              <User className="h-4 w-4" />
+              <span>Login / Register</span>
+            </Link>
+          </div>
+
+          <div className="relative group cursor-pointer">
+            <ShoppingCart className="h-6 w-6 text-white group-hover:text-accent transition-colors" />
+            <span className="absolute -top-2 -right-2 bg-accent text-white text-[10px] font-bold h-4 w-4 flex items-center justify-center rounded-full">
+              0
+            </span>
+          </div>
+
           <Button 
             className="bg-accent hover:bg-accent/90 text-white uppercase font-bold tracking-wider rounded-sm px-6"
             size="lg"
