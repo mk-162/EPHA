@@ -14,7 +14,7 @@ export function Navigation() {
             <img 
               src={EPHA_Logo} 
               alt="EPHA Logo" 
-              className="h-12 w-auto object-contain brightness-0 invert" 
+              className="h-12 w-auto object-contain" 
             />
         </Link>
 
