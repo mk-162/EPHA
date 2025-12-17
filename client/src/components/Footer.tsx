@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import EPHA_Logo from "@assets/EPHA Logo.png";
 
 export function Footer() {
   return (
@@ -9,8 +10,11 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-6">
             <div className="flex flex-col">
-              <span className="font-heading text-4xl font-bold tracking-wide">EPHA</span>
-              <span className="text-xs font-medium tracking-[0.2em] opacity-60 uppercase">Hose Protectors</span>
+              <img 
+                src={EPHA_Logo} 
+                alt="EPHA Logo" 
+                className="h-16 w-auto object-contain mb-2 -ml-2" 
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Since 1987, EPHA has been the global leader in hose protection technology. 
