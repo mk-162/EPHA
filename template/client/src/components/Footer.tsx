@@ -1,6 +1,5 @@
 import { Link } from "wouter";
-import EPHA_Logo from "@assets/EPHA Logo.svg";
-import US_Widget from "@assets/epha-widget-us-web.webp";
+import EPHA_Logo from "@assets/epha-logo-usa.png";
 
 export function Footer() {
   return (
@@ -13,13 +12,8 @@ export function Footer() {
             <div className="flex items-center gap-4">
               <img
                 src={EPHA_Logo}
-                alt="EPHA Logo"
-                className="h-16 w-auto object-contain"
-              />
-              <img
-                src={US_Widget}
-                alt="Made in USA"
-                className="h-14 w-auto object-contain"
+                alt="EPHA Inc - Made in USA"
+                className="h-20 w-auto object-contain"
               />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
