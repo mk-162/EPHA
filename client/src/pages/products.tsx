@@ -12,20 +12,23 @@ import {
   Calculator, 
   Video, 
   Phone,
-  Check
+  Check,
+  Truck,
+  ShoppingCart
 } from "lucide-react";
 import heroImage from "@assets/generated_images/industrial_hose_protection_hero_image.png";
 import productImage from "@assets/generated_images/red_industrial_hose_protector_product_shot.png";
+import productVideo from "@assets/generated_videos/3d_rotating_red_hydraulic_hose_protector.mp4";
 
 export default function Products() {
   const specs = [
-    { model: "HP4", dim: '2.5" W × 4" L', fit: '0.25" - 1.00"', use: "Battery cables, small pneumatic lines", price: "$3.90" },
-    { model: "HP5", dim: '3.5" W × 5" L', fit: '0.75" - 1.25"', use: "Medium hydraulic lines, cable protection", price: "$4.50" },
-    { model: "HP6", dim: '3.25" W × 6" L', fit: '0.75" - 1.25"', use: "Standard hydraulic assemblies, water lines", price: "$5.20" },
-    { model: "HP12-2", dim: '5" W × 6" L', fit: "Wide range", use: "Heavy-duty single hose protection", price: "$6.80" },
-    { model: "HP8", dim: '3.5" W × 8" L', fit: '1.00" - 1.50"', use: "Medium to large hydraulic systems", price: "$7.40" },
-    { model: "HP10", dim: '4.5" W × 10" L', fit: '1.25" - 2.25"', use: "Large hydraulic assemblies, bundle wraps", price: "$9.10" },
-    { model: "HP12", dim: '5" W × 12" L', fit: '1.50" - 2.50"', use: "Multi-hose bundles, heavy equipment", price: "$10.70" },
+    { model: "HP4", dim: '2.5" W × 4" L', fit: '0.25" - 1.00"', use: "Battery cables, small pneumatic lines", price: 3.90 },
+    { model: "HP5", dim: '3.5" W × 5" L', fit: '0.75" - 1.25"', use: "Medium hydraulic lines, cable protection", price: 4.50 },
+    { model: "HP6", dim: '3.25" W × 6" L', fit: '0.75" - 1.25"', use: "Standard hydraulic assemblies, water lines", price: 5.20 },
+    { model: "HP12-2", dim: '5" W × 6" L', fit: "Wide range", use: "Heavy-duty single hose protection", price: 6.80 },
+    { model: "HP8", dim: '3.5" W × 8" L', fit: '1.00" - 1.50"', use: "Medium to large hydraulic systems", price: 7.40 },
+    { model: "HP10", dim: '4.5" W × 10" L', fit: '1.25" - 2.25"', use: "Large hydraulic assemblies, bundle wraps", price: 9.10 },
+    { model: "HP12", dim: '5" W × 12" L', fit: '1.50" - 2.50"', use: "Multi-hose bundles, heavy equipment", price: 10.70 },
   ];
 
   const applications = [
@@ -33,16 +36,36 @@ export default function Products() {
     "Oil & Fuel Lines", "Radiator Hoses", "Pneumatic Lines", "Electrical Conduits"
   ];
 
+  const bulkTiers = [
+    { qty: "1-49", discount: "List Price" },
+    { qty: "50-199", discount: "15% Off" },
+    { qty: "200-499", discount: "25% Off" },
+    { qty: "500+", discount: "Call for Quote" },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navigation />
+      
+      {/* Free Shipping Banner */}
+      <div className="bg-accent text-white text-center py-2 text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2">
+        <Truck className="h-4 w-4" />
+        Free Shipping on Orders Over $500
+      </div>
 
-      {/* Hero Section */}
+      {/* Hero Section with Video Background */}
       <section className="relative bg-slate-900 py-20 lg:py-32 overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-overlay"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
+        <div className="absolute inset-0 opacity-40 mix-blend-overlay overflow-hidden">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src={productVideo} type="video/mp4" />
+          </video>
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent" />
         
         <div className="container relative mx-auto px-4">
@@ -57,7 +80,7 @@ export default function Products() {
             </p>
             
             <div className="flex flex-wrap gap-4 mb-12">
-              <Button size="xl" className="bg-accent hover:bg-accent/90 text-white font-bold uppercase tracking-wider">
+              <Button size="xl" className="bg-accent hover:bg-accent/90 text-white font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(255,107,53,0.3)] hover:shadow-[0_0_30px_rgba(255,107,53,0.5)] transition-all">
                 Shop All Products
               </Button>
               <Button variant="outline" size="xl" className="text-white border-white hover:bg-white/10 font-bold uppercase tracking-wider">
@@ -165,7 +188,7 @@ export default function Products() {
         </div>
       </section>
 
-      {/* Product Table */}
+      {/* Product Table & Purchasing */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -173,36 +196,73 @@ export default function Products() {
             <p className="text-gray-600">7 professional sizes for every application. Available in Black, High-Visibility Orange, and Yellow.</p>
           </div>
 
-          <div className="overflow-x-auto rounded-lg border border-slate-200 shadow-sm">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-slate-50 text-primary uppercase font-bold tracking-wider border-b border-slate-200">
-                <tr>
-                  <th className="p-4">Model</th>
-                  <th className="p-4">Dimensions</th>
-                  <th className="p-4">Fits Hose OD</th>
-                  <th className="p-4">Best For</th>
-                  <th className="p-4 text-right">Price</th>
-                  <th className="p-4"></th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {specs.map((spec) => (
-                  <tr key={spec.model} className="hover:bg-slate-50/50 transition-colors group">
-                    <td className="p-4 font-bold text-primary">{spec.model}</td>
-                    <td className="p-4 text-gray-600 font-mono">{spec.dim}</td>
-                    <td className="p-4 text-gray-600 font-mono">{spec.fit}</td>
-                    <td className="p-4 text-gray-600">{spec.use}</td>
-                    <td className="p-4 text-right font-bold text-accent">{spec.price}</td>
-                    <td className="p-4 text-right">
-                      <Button size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity bg-primary hover:bg-primary/90">
-                        Add to Order
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Main Product Table */}
+            <div className="lg:col-span-2">
+              <div className="overflow-x-auto rounded-lg border border-slate-200 shadow-sm">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-slate-50 text-primary uppercase font-bold tracking-wider border-b border-slate-200">
+                    <tr>
+                      <th className="p-4">Model</th>
+                      <th className="p-4">Specs</th>
+                      <th className="p-4">Application</th>
+                      <th className="p-4 text-right">Unit Price</th>
+                      <th className="p-4"></th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {specs.map((spec) => (
+                      <tr key={spec.model} className="hover:bg-slate-50/50 transition-colors group">
+                        <td className="p-4 font-bold text-primary align-middle">{spec.model}</td>
+                        <td className="p-4 text-gray-600 font-mono text-xs align-middle">
+                          <div className="font-bold">{spec.fit} OD</div>
+                          <div>{spec.dim}</div>
+                        </td>
+                        <td className="p-4 text-gray-600 text-xs align-middle">{spec.use}</td>
+                        <td className="p-4 text-right font-bold text-lg text-primary align-middle">${spec.price.toFixed(2)}</td>
+                        <td className="p-4 text-right align-middle">
+                          <Button size="sm" className="bg-accent hover:bg-accent/90 text-white font-bold uppercase tracking-wider">
+                            Buy Now
+                          </Button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Bulk Pricing Sidebar */}
+            <div className="lg:col-span-1 space-y-6">
+              <div className="bg-slate-900 text-white rounded-lg p-6 shadow-lg border border-slate-700">
+                <h3 className="font-heading text-xl font-bold uppercase mb-4 flex items-center gap-2">
+                  <Calculator className="h-5 w-5 text-accent" />
+                  Bulk Volume Pricing
+                </h3>
+                <div className="space-y-3">
+                  {bulkTiers.map((tier, idx) => (
+                    <div key={idx} className="flex justify-between items-center py-2 border-b border-white/10 last:border-0">
+                      <span className="text-gray-300">{tier.qty} units</span>
+                      <span className={`font-bold ${idx === 0 ? 'text-gray-400' : 'text-accent'}`}>{tier.discount}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 pt-4 border-t border-white/10 text-xs text-center text-gray-400">
+                  <p>Discounts applied automatically at checkout.</p>
+                  <p className="mt-1">Free shipping on orders over $500.</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-50 p-6 rounded-lg border border-slate-200 text-center">
+                <h4 className="font-bold text-primary uppercase mb-2">Need a Custom Quote?</h4>
+                <p className="text-sm text-gray-600 mb-4">For orders over 500 units or distributor inquiries.</p>
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white font-bold uppercase tracking-wider">
+                  Request Quote
+                </Button>
+              </div>
+            </div>
           </div>
+
 
           <div className="mt-12 grid md:grid-cols-2 gap-8 bg-slate-900 rounded-2xl p-8 md:p-12 text-white overflow-hidden relative">
             <div className="relative z-10">
