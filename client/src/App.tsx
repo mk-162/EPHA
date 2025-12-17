@@ -9,6 +9,7 @@ import CaseStudy from "@/pages/case-study";
 import Products from "@/pages/products";
 import About from "@/pages/about";
 import Industries from "@/pages/industries";
+import FleetIndustry from "@/pages/industries/fleet";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/products" component={Products} />
       <Route path="/about" component={About} />
       <Route path="/industries" component={Industries} />
+      <Route path="/industries/fleet" component={FleetIndustry} />
       <Route component={NotFound} />
     </Switch>
   );
