@@ -8,7 +8,7 @@ import agImage from "@assets/generated_images/hose_protector_on_agricultural_tra
 
 export function Hero() {
   return (
-    <section className="relative h-[85vh] min-h-[600px] w-full overflow-hidden bg-slate-900">
+    <section className="relative min-h-[500px] w-full overflow-hidden bg-slate-900">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -19,39 +19,39 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
 
-      <div className="container relative mx-auto h-full grid lg:grid-cols-2 gap-12 items-center px-4 pt-20">
-        <div className="space-y-6">
-          <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-white uppercase leading-[0.9] drop-shadow-xl">
+      <div className="container relative mx-auto h-full grid lg:grid-cols-2 gap-8 items-center px-4 py-16">
+        <div className="space-y-4">
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase leading-[0.9] drop-shadow-xl">
             The <span className="text-accent">$8 Solution</span> <br />
             That Prevents <br />
             $47,500 Failures
           </h1>
           
-          <p className="max-w-xl text-lg md:text-xl text-gray-200 font-light leading-relaxed">
+          <p className="max-w-xl text-base md:text-lg text-gray-200 font-light leading-relaxed">
             Industrial-grade hose protection that installs in 4 minutes and 
             prevents 85% of costly equipment breakdowns.
           </p>
 
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-wrap gap-3 pt-3">
             <Button 
-              size="xl" 
-              className="bg-accent hover:bg-accent/90 text-white font-bold text-lg px-8 py-6 rounded-sm uppercase tracking-wider shadow-lg hover:translate-y-[-2px] transition-all"
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-white font-bold text-base px-6 py-4 rounded-sm uppercase tracking-wider shadow-lg hover:translate-y-[-2px] transition-all"
             >
               Shop Products
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             
             <Button 
               variant="outline" 
-              size="xl" 
-              className="border-2 border-white text-white hover:bg-white/10 hover:text-white font-bold text-lg px-8 py-6 rounded-sm uppercase tracking-wider backdrop-blur-sm"
+              size="lg" 
+              className="border-2 border-white text-white hover:bg-white/10 hover:text-white font-bold text-base px-6 py-4 rounded-sm uppercase tracking-wider backdrop-blur-sm"
             >
-              <PlayCircle className="mr-2 h-5 w-5" />
+              <PlayCircle className="mr-2 h-4 w-4" />
               Watch Demo
             </Button>
           </div>
 
-          <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="pt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
             <TrustBadge icon={USFlagIcon} label="Made in USA" />
             <TrustBadge icon={Thermometer} label="-40°F to 430°F" />
             <TrustBadge icon={Clock} label="4-Minute Install" />
@@ -60,7 +60,7 @@ export function Hero() {
         </div>
 
         {/* 2x2 Image Grid */}
-        <div className="hidden lg:grid grid-cols-2 gap-4">
+        <div className="hidden lg:grid grid-cols-2 gap-3">
           <UseCaseImage src={truckingImage} label="Trucking Fleets" />
           <UseCaseImage src={manufacturingImage} label="Manufacturing" />
           <UseCaseImage src={autoRepairImage} label="Auto Repair" />
@@ -80,9 +80,9 @@ function UseCaseImage({ src, label }: { src: string, label: string }) {
         className="object-cover w-full h-full hover:scale-110 transition-transform duration-700" 
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
-      <div className="absolute bottom-0 inset-x-0 p-4">
-        <div className="text-accent text-xs font-bold uppercase tracking-wider mb-1">Industry</div>
-        <div className="text-white font-heading text-2xl font-bold uppercase leading-none">{label}</div>
+      <div className="absolute bottom-0 inset-x-0 p-3">
+        <div className="text-accent text-[10px] font-bold uppercase tracking-wider mb-0.5">Industry</div>
+        <div className="text-white font-heading text-lg font-bold uppercase leading-none">{label}</div>
       </div>
     </div>
   )
@@ -111,10 +111,10 @@ function USFlagIcon(props: React.ComponentProps<"svg">) {
 function TrustBadge({ icon: Icon, label }: { icon: any, label: string }) {
   return (
     <div className="flex flex-col items-center gap-2 group cursor-default">
-      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 border border-white/20 backdrop-blur-md transition-all group-hover:bg-accent group-hover:border-accent">
-        <Icon className="h-8 w-8 text-white" />
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 border border-white/20 backdrop-blur-md transition-all group-hover:bg-accent group-hover:border-accent">
+        <Icon className="h-6 w-6 text-white" />
       </div>
-      <span className="text-sm font-bold text-white uppercase tracking-wide text-center">{label}</span>
+      <span className="text-xs font-bold text-white uppercase tracking-wide text-center leading-tight">{label}</span>
     </div>
   );
 }
