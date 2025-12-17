@@ -46,8 +46,8 @@ export function Footer() {
               </li>
               <li className="flex flex-col">
                 <span className="text-xs uppercase text-gray-600 mb-1">Sales</span>
-                <span className="text-white font-bold">1-800-555-0199</span>
-                <span className="text-accent">sales@epha.com</span>
+                <span className="text-white font-bold">463-255-9942</span>
+                <span className="text-accent">sales@gtsegroup.com</span>
               </li>
             </ul>
           </div>

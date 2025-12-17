@@ -35,7 +35,7 @@ export function Navigation() {
         <div className="hidden md:flex items-center gap-4">
           <div className="flex items-center gap-2 text-sm font-medium opacity-80 hover:opacity-100 cursor-pointer">
             <Phone className="h-4 w-4" />
-            <span>1-800-555-0199</span>
+            <span>463-255-9942</span>
           </div>
           <Button 
             className="bg-accent hover:bg-accent/90 text-white uppercase font-bold tracking-wider rounded-sm px-6"
