@@ -18,10 +18,13 @@ export function Navigation() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
+          <Link href="/products" className="text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors cursor-pointer">
+             Products
+          </Link>
           <Link href="/case-study" className="text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors cursor-pointer">
              Case Studies
           </Link>
-          {["Products", "Industries", "About", "Contact"].map((item) => (
+          {["Industries", "About", "Contact"].map((item) => (
             <Link key={item} href="#" className="text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors cursor-pointer">
                 {item}
             </Link>
