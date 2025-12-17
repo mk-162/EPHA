@@ -12,6 +12,7 @@ import Industries from "@/pages/industries";
 import FleetIndustry from "@/pages/industries/fleet";
 import ConstructionIndustry from "@/pages/industries/construction";
 import Contact from "@/pages/contact";
+import Distribution from "@/pages/distribution";
 
 function Router() {
   return (
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/industries/fleet" component={FleetIndustry} />
       <Route path="/industries/construction" component={ConstructionIndustry} />
       <Route path="/contact" component={Contact} />
+      <Route path="/distribution" component={Distribution} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -30,13 +30,18 @@ export function Footer() {
           <div>
             <h4 className="font-bold uppercase tracking-wider mb-6 text-sm text-gray-300">Quick Links</h4>
             <ul className="space-y-3 text-sm text-gray-400">
-              {["Products", "Case Studies", "Industries", "About Us", "Contact", "Distributors"].map(item => (
+              {["Products", "Case Studies", "Industries", "About Us", "Contact"].map(item => (
                 <li key={item}>
-                  <Link href="#" className="hover:text-accent transition-colors cursor-pointer">
+                  <Link href={`/${item.toLowerCase().replace(" ", "-")}`} className="hover:text-accent transition-colors cursor-pointer">
                     {item}
                   </Link>
                 </li>
               ))}
+              <li>
+                  <Link href="/distribution" className="hover:text-accent transition-colors cursor-pointer">
+                    Distributors
+                  </Link>
+              </li>
             </ul>
           </div>
 
