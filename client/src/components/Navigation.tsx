@@ -26,11 +26,15 @@ export function Navigation() {
           <Link href="/case-study" className="text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors cursor-pointer">
              Case Studies
           </Link>
-          {["Industries", "About", "Contact"].map((item) => (
-            <Link key={item} href="#" className="text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors cursor-pointer">
-                {item}
-            </Link>
-          ))}
+          <Link href="/industries" className="text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors cursor-pointer">
+             Industries
+          </Link>
+          <Link href="/about" className="text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors cursor-pointer">
+             About
+          </Link>
+          <Link href="/contact" className="text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors cursor-pointer">
+             Contact
+          </Link>
         </nav>
 
         {/* Actions */}
