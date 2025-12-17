@@ -33,7 +33,7 @@ export function Hero() {
               size="xl" 
               className="bg-accent hover:bg-accent/90 text-white font-bold text-lg px-8 py-6 rounded-sm uppercase tracking-wider shadow-lg hover:translate-y-[-2px] transition-all"
             >
-              Calculate Your Savings
+              Shop Products
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             

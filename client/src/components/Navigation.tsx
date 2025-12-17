@@ -55,13 +55,6 @@ export function Navigation() {
               0
             </span>
           </div>
-
-          <Button 
-            className="bg-accent hover:bg-accent/90 text-white uppercase font-bold tracking-wider rounded-sm px-6"
-            size="lg"
-          >
-            Request a Quote
-          </Button>
         </div>
 
         {/* Mobile Menu */}
