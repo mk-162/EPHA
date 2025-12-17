@@ -30,10 +30,16 @@ export function Footer() {
           <div>
             <h4 className="font-bold uppercase tracking-wider mb-6 text-sm text-gray-300">Quick Links</h4>
             <ul className="space-y-3 text-sm text-gray-400">
-              {["Products", "Case Studies", "Industries", "About Us", "Contact"].map(item => (
-                <li key={item}>
-                  <Link href={`/${item.toLowerCase().replace(" ", "-")}`} className="hover:text-accent transition-colors cursor-pointer">
-                    {item}
+              {[
+                { name: "Products", path: "/products" },
+                { name: "Case Studies", path: "/case-study" },
+                { name: "Industries", path: "/industries" },
+                { name: "About Us", path: "/about" },
+                { name: "Contact", path: "/contact" },
+              ].map(item => (
+                <li key={item.name}>
+                  <Link href={item.path} className="hover:text-accent transition-colors cursor-pointer">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -81,11 +87,6 @@ export function Footer() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
           <p>&copy; 2025 EPHA Hose Protectors. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Sitemap</a>
-          </div>
         </div>
       </div>
     </footer>
