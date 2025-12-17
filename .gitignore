@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Genkit
+.genkit/
+
+# Environment files
+.env
+.env.local
+.env*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+nul
+
+# Claude settings (local)
+.claude/settings.local.json
+
+# Nested git repos (template has its own repo)
+template/.git/
+
+# Replit state files
+.local/
+template/.local/
