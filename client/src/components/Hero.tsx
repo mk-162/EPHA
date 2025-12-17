@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Thermometer, Clock, TrendingDown, PlayCircle } from "lucide-react";
 import heroImage from "@assets/generated_images/excavator_at_golden_hour_with_red_hose_protectors.png";
+import truckingImage from "@assets/generated_images/hose_protector_on_semi-truck_hydraulic_line.png";
+import manufacturingImage from "@assets/generated_images/hose_protector_in_manufacturing_plant.png";
+import autoRepairImage from "@assets/generated_images/hose_protector_in_auto_repair_shop.png";
+import agImage from "@assets/generated_images/hose_protector_on_agricultural_tractor.png";
 
 export function Hero() {
   return (
@@ -12,11 +16,11 @@ export function Hero() {
       />
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
 
-      <div className="container relative mx-auto h-full flex flex-col justify-center px-4 pt-20">
-        <div className="max-w-3xl space-y-6">
+      <div className="container relative mx-auto h-full grid lg:grid-cols-2 gap-12 items-center px-4 pt-20">
+        <div className="space-y-6">
           <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-white uppercase leading-[0.9] drop-shadow-xl">
             The <span className="text-accent">$8 Solution</span> <br />
             That Prevents <br />
@@ -54,9 +58,34 @@ export function Hero() {
             <TrustBadge icon={TrendingDown} label="85% Fewer Failures" />
           </div>
         </div>
+
+        {/* 2x2 Image Grid */}
+        <div className="hidden lg:grid grid-cols-2 gap-4">
+          <UseCaseImage src={truckingImage} label="Trucking Fleets" />
+          <UseCaseImage src={manufacturingImage} label="Manufacturing" />
+          <UseCaseImage src={autoRepairImage} label="Auto Repair" />
+          <UseCaseImage src={agImage} label="Agriculture" />
+        </div>
       </div>
     </section>
   );
+}
+
+function UseCaseImage({ src, label }: { src: string, label: string }) {
+  return (
+    <div className="relative group overflow-hidden rounded-lg aspect-square border border-white/20 shadow-2xl">
+      <img 
+        src={src} 
+        alt={label}
+        className="object-cover w-full h-full hover:scale-110 transition-transform duration-700" 
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
+      <div className="absolute bottom-0 inset-x-0 p-4">
+        <div className="text-accent text-xs font-bold uppercase tracking-wider mb-1">Industry</div>
+        <div className="text-white font-heading text-2xl font-bold uppercase leading-none">{label}</div>
+      </div>
+    </div>
+  )
 }
 
 function USFlagIcon(props: React.ComponentProps<"svg">) {
