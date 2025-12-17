@@ -265,7 +265,7 @@ export default function Industries() {
                       {industry.roi}
                     </div>
                     
-                    <Link href={`/industries/${industry.id}`}>
+                    <Link href={industry.id === 'fleet' ? '/industries/fleet' : industry.id === 'construction' ? '/industries/construction' : `/industries/${industry.id}`}>
                       <Button className="w-full justify-between group-hover:bg-primary group-hover:text-white transition-colors" variant="outline">
                         Learn More <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                       </Button>
