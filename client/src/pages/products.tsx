@@ -264,7 +264,7 @@ export default function Products() {
           </div>
 
 
-          <div className="mt-12 grid md:grid-cols-2 gap-8 bg-slate-900 rounded-2xl p-8 md:p-12 text-white overflow-hidden relative">
+          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8 bg-slate-900 rounded-2xl p-8 md:p-12 text-white overflow-hidden relative">
             <div className="relative z-10">
               <h3 className="font-heading text-3xl font-bold uppercase mb-4">What You Can Protect</h3>
               <div className="grid grid-cols-2 gap-x-8 gap-y-3">
@@ -276,8 +276,9 @@ export default function Products() {
                 ))}
               </div>
             </div>
+
             <div className="relative z-10 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10">
-              <h3 className="font-heading text-2xl font-bold uppercase mb-4">Why Pros Choose EPHA</h3>
+              <h3 className="font-heading text-2xl font-bold uppercase mb-4">Why Maintenance Pros Choose EPHA</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-end border-b border-white/10 pb-2">
                   <span className="text-gray-400">Investment</span>
@@ -292,8 +293,33 @@ export default function Products() {
                   <span className="font-bold text-white">5 Minutes</span>
                 </div>
                 <div className="pt-2 text-center font-bold text-accent uppercase tracking-wide">
-                  ROI: Hoses Last 3-5x Longer
+                  Result: Hoses Last 3-5x Longer
                 </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10">
+              <h3 className="font-heading text-2xl font-bold uppercase mb-4">Installation That Won't Slow You Down</h3>
+              <ul className="space-y-4 text-sm text-gray-300">
+                <li className="flex gap-3">
+                  <span className="h-6 w-6 rounded-full bg-accent flex items-center justify-center text-white font-bold text-xs shrink-0">1</span>
+                  <span>Select the right size protector for your hose diameter</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="h-6 w-6 rounded-full bg-accent flex items-center justify-center text-white font-bold text-xs shrink-0">2</span>
+                  <span>Wrap around the wear point or vulnerable area</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="h-6 w-6 rounded-full bg-accent flex items-center justify-center text-white font-bold text-xs shrink-0">3</span>
+                  <span>Secure with included cable ties through protective grooves</span>
+                </li>
+                <li className="flex gap-3 items-center text-white font-bold pt-2">
+                  <Check className="h-5 w-5 text-accent" />
+                  <span>Done - Return equipment to service immediately</span>
+                </li>
+              </ul>
+              <div className="mt-4 pt-4 border-t border-white/10 text-xs text-center font-bold text-gray-400 uppercase tracking-wide">
+                No tools. No disassembly. No downtime.
               </div>
             </div>
           </div>
