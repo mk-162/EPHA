@@ -1,5 +1,10 @@
 # Dependencies
 node_modules/
+node_modules
+
+# Build output
+dist
+server/public
 
 # Genkit
 .genkit/
@@ -29,3 +34,7 @@ template/.git/
 # Replit state files
 .local/
 template/.local/
+
+# Build artifacts
+vite.config.ts.*
+*.tar.gz
