@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu } from "lucide-react";
-import logoIcon from "@assets/generated_images/navy_blue_shield_logo_icon.png";
+import logoIcon from "@assets/generated_images/epha_hose_protectors_logo.png";
 
 export function Navigation() {
   return (
@@ -12,12 +12,8 @@ export function Navigation() {
             <img 
               src={logoIcon} 
               alt="EPHA Logo" 
-              className="h-10 w-10 object-contain brightness-0 invert" 
+              className="h-12 w-auto object-contain brightness-0 invert" 
             />
-            <div className="flex flex-col justify-center">
-              <span className="font-heading text-3xl font-bold leading-none tracking-wide">EPHA</span>
-              <span className="text-[10px] font-medium tracking-[0.2em] opacity-80 uppercase">Hose Protectors</span>
-            </div>
         </Link>
 
         {/* Desktop Nav */}
