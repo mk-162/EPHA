@@ -50,7 +50,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Router base="/EPHA">
+        <Router base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <ScrollToTop />
           <Toaster />
           <AppRouter />

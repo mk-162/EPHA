@@ -2,122 +2,24 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Link, useParams } from "wouter";
 import { Calendar, Clock, ChevronRight, ArrowLeft, Share2, Linkedin, Twitter, Facebook, User } from "lucide-react";
-
-// Sample blog posts data - in production this would come from a CMS or API
-const blogPosts: Record<string, {
-    id: number;
-    slug: string;
-    title: string;
-    excerpt: string;
-    content: string;
-    image: string;
-    category: string;
-    author: string;
-    authorRole: string;
-    date: string;
-    readTime: string;
-}> = {
-    "preventing-hydraulic-hose-failures": {
-        id: 1,
-        slug: "preventing-hydraulic-hose-failures",
-        title: "5 Ways to Prevent Hydraulic Hose Failures Before They Happen",
-        excerpt: "Hydraulic hose failures can cost your operation thousands in downtime and repairs. Learn the proactive steps that industry leaders use to keep their equipment running.",
-        content: `
-      <p class="lead">Hydraulic hose failures are one of the most common—and costly—problems in heavy equipment operations. A single failure can result in hours of downtime, thousands in repair costs, and potential safety hazards for your crew.</p>
-
-      <p>After working with fleet managers across construction, mining, and agricultural industries for over 35 years, we've identified the five most effective strategies for preventing hose failures before they happen.</p>
-
-      <h2>1. Implement a Proactive Inspection Schedule</h2>
-      <p>The most common cause of unexpected hose failure is simple: lack of regular inspection. Many operations wait until a hose fails before examining the rest of their hydraulic system. By then, it's often too late.</p>
-      <p>We recommend implementing a weekly visual inspection protocol that includes:</p>
-      <ul>
-        <li>Checking for visible abrasion or wear marks</li>
-        <li>Looking for kinks, twists, or improper routing</li>
-        <li>Inspecting fittings for leaks or corrosion</li>
-        <li>Documenting any changes from the previous inspection</li>
-      </ul>
-
-      <h2>2. Protect High-Risk Areas with Spiral Guards</h2>
-      <p>Not all hose sections are created equal. Areas where hoses pass near sharp edges, hot surfaces, or moving parts are at significantly higher risk of failure. Installing spiral guards or sleeves on these high-risk sections can extend hose life by 300-500%.</p>
-      <blockquote>
-        "After installing EPHA spiral guards on our excavator fleet, we reduced hydraulic failures by 78% in the first year alone."
-        <cite>— David Chen, Fleet Manager, Western Construction Co.</cite>
-      </blockquote>
-
-      <div class="product-card">
-        <a href="/products" class="product-card-link">
-          <div class="product-card-image">
-            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop" alt="EPHA Spiral Hose Guards" />
-          </div>
-          <div class="product-card-content">
-            <span class="product-card-label">Featured Product</span>
-            <h3 class="product-card-title">EPHA Spiral Hose Guards</h3>
-            <p class="product-card-description">Industrial-grade protection that extends hose life by up to 500%. Available in multiple sizes and colors.</p>
-            <span class="product-card-cta">View All Products →</span>
-          </div>
-        </a>
-      </div>
-
-      <h2>3. Train Operators on Proper Equipment Handling</h2>
-      <p>Operator behavior has a direct impact on hose longevity. Sudden movements, overextension of hydraulic cylinders, and rough handling all contribute to premature wear.</p>
-      <p>Invest in operator training that covers:</p>
-      <ul>
-        <li>Smooth, controlled hydraulic movements</li>
-        <li>Proper warm-up procedures in cold weather</li>
-        <li>Recognition of early warning signs</li>
-        <li>Immediate reporting protocols for potential issues</li>
-      </ul>
-
-      <h2>4. Use the Right Hose for the Application</h2>
-      <p>Using a hose that's underrated for your application is a recipe for failure. Consider not just the working pressure, but also:</p>
-      <ul>
-        <li>Temperature range (both ambient and fluid)</li>
-        <li>Fluid compatibility</li>
-        <li>Bend radius requirements</li>
-        <li>Environmental exposure (UV, ozone, abrasives)</li>
-      </ul>
-
-      <h2>5. Track and Analyze Failure Data</h2>
-      <p>Every failure is an opportunity to learn. By tracking when, where, and why hoses fail, you can identify patterns and address root causes. Modern fleet management software makes this easier than ever.</p>
-
-      <h2>Conclusion</h2>
-      <p>Preventing hydraulic hose failures isn't about luck—it's about implementing systematic, proactive measures. By following these five strategies, you can significantly reduce downtime, lower maintenance costs, and create a safer working environment for your team.</p>
-
-      <p>Ready to take the next step? <a href="/contact">Contact our team</a> for a free assessment of your current hose protection strategy.</p>
-    `,
-        image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop",
-        category: "Maintenance",
-        author: "John Mitchell",
-        authorRole: "Senior Technical Advisor",
-        date: "December 15, 2024",
-        readTime: "6 min read",
-    },
-};
+import { blogPosts } from "@/lib/blog-data";
 
 // Related posts for sidebar
-const relatedPosts = [
-    {
-        slug: "winter-equipment-protection",
-        title: "Winter Equipment Protection: Essential Guide",
-        date: "December 10, 2024",
-    },
-    {
-        slug: "hydraulic-system-maintenance-checklist",
-        title: "The Ultimate Hydraulic System Maintenance Checklist",
-        date: "November 20, 2024",
-    },
-    {
-        slug: "roi-of-hose-protection",
-        title: "The ROI of Hose Protection: A Data-Driven Analysis",
-        date: "November 28, 2024",
-    },
-];
+const relatedPosts = blogPosts.slice(0, 3).map(p => ({
+    slug: p.slug,
+    title: p.title,
+    date: p.date
+}));
 
 export default function BlogPost() {
     const { slug } = useParams<{ slug: string }>();
 
     // Get post or show default
-    const post = slug && blogPosts[slug] ? blogPosts[slug] : blogPosts["preventing-hydraulic-hose-failures"];
+    const post = slug ? blogPosts.find(p => p.slug === slug) : blogPosts[0];
+
+    if (!post) {
+        return <div>Post not found</div>;
+    }
 
     return (
         <div className="min-h-screen bg-background text-foreground font-sans">
