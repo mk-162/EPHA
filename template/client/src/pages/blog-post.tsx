@@ -4,6 +4,15 @@ import { Link, useParams } from "wouter";
 import { Calendar, Clock, ChevronRight, ArrowLeft, Share2, Linkedin, Twitter, Facebook, User } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
 
+// Helper to resolve image paths with base URL for GitHub Pages
+function getImageUrl(imagePath: string): string {
+    if (imagePath.startsWith('http')) return imagePath;
+    if (imagePath.startsWith('/')) {
+        return `${import.meta.env.BASE_URL}${imagePath.slice(1)}`;
+    }
+    return `${import.meta.env.BASE_URL}${imagePath}`;
+}
+
 // Related posts for sidebar
 const relatedPosts = blogPosts.slice(0, 3).map(p => ({
     slug: p.slug,
@@ -29,7 +38,7 @@ export default function BlogPost() {
                 <section className="relative h-[50vh] min-h-[400px] flex items-end">
                     <div className="absolute inset-0">
                         <img
-                            src={post.image}
+                            src={getImageUrl(post.image)}
                             alt={post.title}
                             className="w-full h-full object-cover"
                         />

@@ -4,6 +4,15 @@ import { Link } from "wouter";
 import { Calendar, Clock, ArrowRight, ChevronRight } from "lucide-react";
 import { blogPosts, categories } from "@/lib/blog-data";
 
+// Helper to resolve image paths with base URL for GitHub Pages
+function getImageUrl(imagePath: string): string {
+    if (imagePath.startsWith('http')) return imagePath;
+    if (imagePath.startsWith('/')) {
+        return `${import.meta.env.BASE_URL}${imagePath.slice(1)}`;
+    }
+    return `${import.meta.env.BASE_URL}${imagePath}`;
+}
+
 export default function Blog() {
     const featuredPost = blogPosts.find(post => post.featured);
     const regularPosts = blogPosts.filter(post => !post.featured);
@@ -44,7 +53,7 @@ export default function Blog() {
                                 <div className="group grid md:grid-cols-2 gap-8 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                     <div className="relative h-64 md:h-auto overflow-hidden">
                                         <img
-                                            src={featuredPost.image}
+                                            src={getImageUrl(featuredPost.image)}
                                             alt={featuredPost.title}
                                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
@@ -110,7 +119,7 @@ export default function Blog() {
                                     <article className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all">
                                         <div className="relative h-48 overflow-hidden">
                                             <img
-                                                src={post.image}
+                                                src={getImageUrl(post.image)}
                                                 alt={post.title}
                                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                             />
